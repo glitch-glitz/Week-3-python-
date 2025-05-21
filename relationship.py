@@ -49,3 +49,36 @@ item3 = ShoppingList("Majani Chai", 300,1)
 item4 = ShoppingList("Mouse", 500, 2)
 print(ShoppingList.all)
 print("Total", ShoppingList.calculate_total())
+
+
+
+# object relationships
+
+
+# one to many -> Parent to Child
+
+class Parent:
+    def __init__(self, name):
+        self.name = name
+        #we will use this to store instances of the child class
+        self.children = []
+
+    def add_child(self, child):
+        self.children.append(child)
+
+class Child:
+    def __init__(self, name):
+        self.name = name
+
+
+    def __repr__(self):
+        return f"Child {self.name}"
+
+parent1 =Parent("Jane")
+child1 = Child("Tabitha")
+child2=Child("Trevor")
+#we are able to save child info to the parent class
+parent1.add_child(child1)
+parent1.add_child(child2)
+
+print(parent1.children)
